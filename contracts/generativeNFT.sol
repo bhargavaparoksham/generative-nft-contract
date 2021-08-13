@@ -17,6 +17,7 @@ contract generativeNFT is ERC721URIStorage, Ownable {
     constructor() ERC721 ("Generative NFT","GNFT") {  
         nftsMinted = 0;
         nftMintLimit = 10000;
+        mintPrice = 100000000000000000; //wei or 0.1 Eth
     }
 
     function mintNFT(string[] memory tokenURI, uint256 _numNFTs) public payable returns (uint256[] memory) {
@@ -31,7 +32,6 @@ contract generativeNFT is ERC721URIStorage, Ownable {
 
         uint256[] memory newItemIds;
 
-
         for (uint256 i = 0; i < _numNFTs; i++) {
 
             newItemIds[i] = nftsMinted;
@@ -42,6 +42,13 @@ contract generativeNFT is ERC721URIStorage, Ownable {
         }
 
         return newItemIds;
+
+    }
+
+
+    function setMintPrice(uint256 _mintPrice) public onlyOwner {
+
+        mintPrice = _mintPrice;
 
     }
 
