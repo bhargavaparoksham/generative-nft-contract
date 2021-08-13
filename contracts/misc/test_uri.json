@@ -1,0 +1,24 @@
+{
+    "name": "eagle",
+    "description": "Bald Eagle",
+    "image": "https://ipfs.io/ipfs/QmX88ddaTb8XmbG4koHYQWcrH3PJDvtXhC58VqRYKWrYwr",
+    "attributes": [
+        {
+            "trait_type": "",
+            "value": 0
+        }
+    ]
+}
+
+
+//Rarible sample metadata
+
+{"name":"FFF","description":"","image":"ipfs://ipfs/QmPe1W8XiUYdsvdpvgWVwekQ7cDQivRMak3YPX15vxvSJs/image.png","external_url":"https://rinkeby.rarible.com/token/0x509fd4cdaa29be7b1fad251d8ea0fca2ca91eb60:18","attributes":[]}
+
+
+//my nft
+//contract address: 0xd07dc4262bcdbf85190c01c996b4c06a461d2430
+//tokenid: 23313
+//URI: ipfs://ipfs/QmTYy7QVb6MpsYjmpnkcVZ3kytSQHYCAka49UBicMaPweC
+
+{"name":"9","description":"","image":"ipfs://ipfs/QmWDPEySGWjcfrQujgwgnk9fVWcXrHRGaQ65WqnACFcoas","external_url":"https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:23313","attributes":[]}
