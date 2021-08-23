@@ -20,7 +20,8 @@
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const dotenv = require('dotenv').config()
-const infuraKey = process.env.RINKEBY
+const infuraTestnet = process.env.RINKEBY
+const infuraMainnet = process.env.MAINNET
 const privateKey = process.env.PRIVATE_KEY_1
 
 // const fs = require('fs');
@@ -60,10 +61,21 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
+
+    mainnet: {
+      provider: () => new HDWalletProvider(privateKey, infuraMainnet),
+      network_id: 1,
+      gasPrice: 65000000000, //60 gwei
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+
     rinkeby: {
-    provider: () => new HDWalletProvider(privateKey, infuraKey),
+    provider: () => new HDWalletProvider(privateKey, infuraTestnet),
     network_id: 4,       // Rinkeby's id
-    gas: 5500000,        // Ropsten has a lower block limit than mainnet
+    gas: 5500000,        // Rinkeby has a lower block limit than mainnet
+    gasPrice: 60000000000, //75 gwei
     confirmations: 2,    // # of confs to wait between deployments. (default: 0)
     timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
     skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )

@@ -144,15 +144,6 @@ contract generativeNFT is ERC721, Ownable, VRFConsumerBase {
 
 
     /**
-    * Withdraw ETH from contract
-    */  
-    function withdrawETH(address _to, uint256 _amount) public onlyOwner {
-        require(_amount <= address(this).balance, "Generative Art: Transfer Amount is less than or equal to contract balance");
-        payable(_to).transfer(_amount);
-
-    }
-
-    /**
     * Set Chainlink VRF
     */  
     function setChainLinkVRF(
@@ -196,13 +187,6 @@ contract generativeNFT is ERC721, Ownable, VRFConsumerBase {
     }
 
     /**
-    * Withdraw Link from the contract.
-    */
-    function withdrawLink(address _to) public onlyOwner {
-        IERC20(LINKTokenAddress).transfer(_to, IERC20(LINKTokenAddress).balanceOf(address(this)));
-    }
-
-    /**
     * Get randomness from Chainlink VRF to propose winners.
     */
     function selectRandomWinners() public {
@@ -241,10 +225,26 @@ contract generativeNFT is ERC721, Ownable, VRFConsumerBase {
             // Get winner
             address winner = ownerOf(winnerIDs[winnersDisbursed]);
             // Transfer Prize Money to winner
-            payable(winner).transfer(accountBalance*((prizeMoneyPercent[winnersDisbursed])/100));
+            payable(winner).transfer((accountBalance*prizeMoneyPercent[winnersDisbursed])/100);
             // Increment winnersDisbursed
             winnersDisbursed++;
         }
+    }
+
+    /**
+    * Withdraw ETH from contract
+    */  
+    function withdrawETH(address _to, uint256 _amount) public onlyOwner {
+        require(_amount <= address(this).balance, "Generative Art: Transfer Amount is less than or equal to contract balance");
+        payable(_to).transfer(_amount);
+
+    }
+
+    /**
+    * Withdraw Link from the contract.
+    */
+    function withdrawLink(address _to) public onlyOwner {
+        IERC20(LINKTokenAddress).transfer(_to, IERC20(LINKTokenAddress).balanceOf(address(this)));
     }
 
 }
