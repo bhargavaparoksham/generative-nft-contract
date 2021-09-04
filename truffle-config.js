@@ -23,6 +23,7 @@ const dotenv = require('dotenv').config()
 const infuraTestnet = process.env.RINKEBY
 const infuraMainnet = process.env.MAINNET
 const privateKey = process.env.PRIVATE_KEY_1
+const etherscanKey = process.env.ETHERSCAN_KEY
 
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -37,6 +38,7 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
