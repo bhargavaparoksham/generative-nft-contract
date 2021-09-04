@@ -6,5 +6,4 @@ Generative-nft-contract is a simple NFT contract with a built in lottery functio
 2. There are a maximum of 10k NFTs, once all of them are sold the built in lottery will become active. 
 3. Once lottery is active anyone can call getRandomness & selectRandomWinners functions which selects 10 lucky winners using chainlink VRF and part of the money pooled from the NFT sales is transfered to them as a giveaway!
 
-
-
+Frontend for the contract: https://fairysparkles.art/
